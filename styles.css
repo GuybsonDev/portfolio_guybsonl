@@ -2,13 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #132126;
-    background-color: #2e9290;
+    background-color: #f0f0f0;
   }
   
   header {
-    background-color: #2e9290;
-    color: #fff;
+    background-color: #ffffff;
+    color: rgb(9, 9, 9);
     padding: 1rem;
     text-align: center;
   }
@@ -24,32 +23,41 @@ body {
   }
   
   nav ul li a {
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-decoration: none;
   }
-
-
-  section desc {
-    padding: 2rem;
-    margin: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(33, 129, 170, 0.1);
+  
+  .scroll-section {
+    min-height: 100vh; /* Cada seção ocupará a altura da tela */
+    padding: 40px;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
   }
   
-  section {
-    padding: 2rem;
-    margin: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(33, 129, 170, 0.1);
+  /* Cores diferentes para cada seção */
+  #sobre {
+    background-color: #3498db;
+  }
+  
+  #projetos {
+    background-color: #2ecc71;
+  }
+  
+  #contato {
+    background-color: #e74c3c;
+  }
+  
+  /* Quando a seção estiver visível */
+  .scroll-section.visible {
+    opacity: 1;
   }
   
   footer {
     text-align: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 0rem;
-    background-color: #333;
-    color: #fff;
     position: fixed;
     bottom: 0;
     width: 100%;
