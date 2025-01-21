@@ -26,6 +26,29 @@ body {
     color: rgb(0, 0, 0);
     text-decoration: none;
   }
+
+/* Sobre Mim */
+#sobre {
+    padding: 40px;
+    background-color: #f1f1f1;
+    text-align: center;
+    background-image: url('imagens/grafico-barras.png'), url('imagens/grafico-dispersao.png'), url('imagens/grafico-linha.png');
+    background-size: 150px 150px;
+    background-position: top left, top right, bottom left;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+  }
+  
+  #sobre h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  #sobre p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
   
   .scroll-section {
     min-height: 100vh; /* Cada seção ocupará a altura da tela */
@@ -52,6 +75,8 @@ body {
   .scroll-section.visible {
     opacity: 1;
   }
+  
+
   
   footer {
     text-align: center;
