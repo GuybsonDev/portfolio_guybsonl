@@ -2,53 +2,96 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #3e3c3c;
   }
   
   header {
-    background-color: #ffffff;
-    color: rgb(9, 9, 9);
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
+    background-color: #040404; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 0; /* Remove espaçamento interno adicional */
+    text-align: right; /* Alinha o conteúdo à direita */
+    height: 50px; /* Altura suficiente para os botões */
+    display: flex; /* Permite alinhamento com flexbox */
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    position: fixed; /* Faz o header ficar fixo na tela */
+    top: 0; /* Alinha no topo da página */
+    width: 100%; /* Garante que o header ocupe toda a largura da tela */
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
   }
 
-/* Sobre Mim */
-#sobre {
+  nav {
+      margin-right: 20px; /* Afasta os botões da borda direita */
+  }
+
+  nav ul {
+      list-style: none; /* Remove marcadores de lista */
+      padding: 0; /* Remove espaçamento interno da lista */
+      margin: 0; /* Remove margens externas da lista */
+      display: flex; /* Exibe os itens horizontalmente */
+      gap: 15px; /* Espaçamento uniforme entre os itens */
+  }
+
+  nav ul li {
+      display: inline; /* Garante que os itens fiquem alinhados horizontalmente */
+  }
+
+  nav ul li a {
+      display: inline-block; /* Necessário para aplicar padding e bordas */
+      color: rgb(255, 255, 255); /* Cor do texto */
+      text-decoration: none; /* Remove sublinhado */
+      background-color: #181818; /* Cor do botão */
+      padding: 0.5rem 1rem; /* Espaçamento interno */
+      border-radius: 20px; /* Bordas arredondadas */
+      font-size: 1rem; /* Tamanho do texto */
+      transition: all 0.3s ease; /* Transição suave ao passar o mouse */
+      border: 2px solid transparent; /* Adiciona borda invisível */
+  }
+
+
+
+
+  /* Adiciona fontes do Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+  #inicio {
     padding: 40px;
     background-color: #f1f1f1;
     text-align: center;
     background-image: url('imagens/grafico-barras.png'), url('imagens/grafico-dispersao.png'), url('imagens/grafico-linha.png');
     background-size: 150px 150px;
-    background-position: top left, top right, bottom left;
+    background-position: top left, center left, bottom left;
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-blend-mode: multiply;
+
+    /* Flexbox para centralização */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+  }
+
+  #inicio h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 10px; /* Diminuindo o espaço entre o título e o parágrafo */
+    letter-spacing: 2px; /* Ajustei para o espaçamento ficar mais próximo */
+    color: #afabab;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   }
   
-  #sobre h2 {
+  #inicio p {
+    font-family: 'Open Sans', sans-serif;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-top: 0; /* Removendo o espaço superior */
+    margin-bottom: 1px;
+    color: #afabab;
+    letter-spacing: 1px; /* Ajustei o espaçamento das letras para ficar mais próximo do título */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   }
-  
-  #sobre p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-  }
+
   
   .scroll-section {
     min-height: 100vh; /* Cada seção ocupará a altura da tela */
@@ -58,17 +101,23 @@ body {
     transition: opacity 1s ease-in-out;
   }
   
-  /* Cores diferentes para cada seção */
-  #sobre {
-    background-color: #3498db;
+  #inicio {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), /* Overlay cinza escuro com 50% de opacidade */
+        url('imagens/background-about.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Ajusta a imagem sem distorcê-la */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição */
+    image-rendering: auto; /* Garante a melhor renderização possível */
+    height: 100vh; /* Altura para ocupar a viewport */
   }
   
   #projetos {
-    background-color: #2ecc71;
+    background-color: #242424;
   }
   
   #contato {
-    background-color: #e74c3c;
+    background-color: #3e3c3c;
   }
   
   /* Quando a seção estiver visível */
@@ -79,12 +128,13 @@ body {
 
   
   footer {
-    text-align: center;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 0rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    text-align: center; /* Centraliza o conteúdo */
+    background-color: #000000; /* Cor de fundo */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    padding: 1rem; /* Adiciona espaçamento interno */
+    width: 100%; /* Garante que ocupe toda a largura da página */
+    margin-top: auto; /* Garante que o footer empurre o conteúdo para o topo */
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+    overflow-x: hidden; /* Impede rolagem horizontal no footer */
   }
-  
+
