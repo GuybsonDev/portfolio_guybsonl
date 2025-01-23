@@ -18,6 +18,7 @@ body {
     top: 0; /* Alinha no topo da página */
     width: 100%; /* Garante que o header ocupe toda a largura da tela */
     z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destaque */
   }
 
   nav {
@@ -40,13 +41,21 @@ body {
       display: inline-block; /* Necessário para aplicar padding e bordas */
       color: rgb(255, 255, 255); /* Cor do texto */
       text-decoration: none; /* Remove sublinhado */
-      background-color: #181818; /* Cor do botão */
+      background-color: #040404; /* Cor do botão */
       padding: 0.5rem 1rem; /* Espaçamento interno */
       border-radius: 20px; /* Bordas arredondadas */
       font-size: 1rem; /* Tamanho do texto */
       transition: all 0.3s ease; /* Transição suave ao passar o mouse */
-      border: 2px solid transparent; /* Adiciona borda invisível */
+      border: 2px solid; /* Adiciona borda */
+      border-color: #0f0f0f; /* Cor da borda */
   }
+
+  nav ul li a:hover {
+      background-color: #030303; /* Cor de fundo ao passar o mouse */
+      color: #ffffff; /* Cor do texto ao passar o mouse */
+      border-color: #ffffff; /* Altera a cor da borda ao passar o mouse */
+  }
+
 
 
 
@@ -128,50 +137,150 @@ body {
     transition: opacity 1s ease-in-out;
   }
   
-  #sobre {
-    padding: 40px;
-    background-color: #4b4b4b;
-    text-align: center;
-    background-size: 150px 150px;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-attachment: scroll;
-    background-blend-mode: multiply;
+/* Estilos gerais da seção sobre */
+#sobre {
+  padding: 40px;
+  background-color: #4b4b4b;
+  text-align: left;
+  background-size: 150px 150px;
+  background-attachment: scroll;
+  background-blend-mode: multiply;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url('imagens/background-me.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: auto;
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 1s ease-out; /* Transição suave */
+}
 
-    /* Flexbox para centralização */
+/* Animação de fade-in para o fundo */
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Estilos do título (texto) */
+#sobre h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #afabab;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 1s ease-out; /* Transição suave */
+}
+
+/* Estilos do parágrafo (texto) */
+#sobre p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1px;
+  color: #afabab;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 1s ease-out 0.5s; /* Transição suave com atraso */
+}
+
+/* Estilos para o container da imagem */
+#sobre .foto-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 250px;
+  opacity: 0;
+  transition: opacity 1s ease-out 1s; /* Transição suave com atraso */
+}
+
+/* Estilos para a imagem */
+#sobre .foto {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Quando a seção estiver visível */
+#sobre.visible {
+  opacity: 1;
+}
+
+#sobre h2.visible, #sobre p.visible, #sobre .foto-container.visible {
+  opacity: 1;
+}
+  
+  /* Estilos para o container da imagem */
+  #sobre .foto-container {
     display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: top;
-    height: 150vh;
+    justify-content: flex-end; /* Alinha a imagem à direita */
+    align-items: flex-start; /* Alinha a imagem ao topo */
+    margin-top: 20px; /* Ajusta a distância do topo */
+    width: 250px; /* Garantindo que o container da imagem tenha largura definida */
   }
-
-  #sobre h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 10px; /* Diminuindo o espaço entre o título e o parágrafo */
-    letter-spacing: 2px; /* Ajustei para o espaçamento ficar mais próximo */
-    color: #afabab;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  
+  /* Estilos para a imagem */
+  #sobre .foto {
+    width: 250px; /* Largura da imagem */
+    height: 400px; /* Altura da imagem */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
+  
 
-  #sobre {
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), /* Overlay cinza escuro com 50% de opacidade */
-        url('imagens/background-me.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Ajusta a imagem sem distorcê-la */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição */
-    image-rendering: auto; /* Garante a melhor renderização possível */
-    height: 100vh; /* Altura para ocupar a viewport */
+  .foto-container {
+    display: flex;
+    justify-content: flex-start;  /* Alinha os elementos no começo, à esquerda */
+    align-items: flex-start;  /* Alinha as imagens do carrossel com a imagem principal */
+    width: 100%;  /* Garante que o contêiner ocupe 100% da largura */
+    height: 100%;  /* Permite que o contêiner cresça em altura */
   }
-
+  
+  .foto {
+    width: 60%;  /* Tamanho da imagem principal */
+    height: auto;  /* Mantém a proporção da imagem principal */
+  }
+  
+  .carousel-container {
+    display: flex;
+    flex-direction: column;  /* Empilha as imagens do carrossel verticalmente */
+    width: 30%;  /* Ajuste da largura do carrossel */
+    order: -1;  /* Coloca o carrossel à esquerda da imagem principal */
+    height: auto;  /* Permite que o carrossel tenha a altura dinâmica */
+    gap: 10px;  /* Espaçamento entre as imagens do carrossel */
+    margin-left: 10px;  /* Espaço entre a imagem principal e o carrossel */
+    height: 100%;  /* Força o carrossel a preencher a altura disponível */
+  }
+  
+  .carousel-image {
+    width: 100%;  /* Ajusta as imagens dentro do carrossel para o tamanho do contêiner */
+    height: auto;  /* Mantém as proporções das imagens do carrossel */
+  }
+  
+  /* Ajustes de fundo */
   #projetos {
     background-color: #242424;
   }
-
+  
   #contato {
     background-color: #3e3c3c;
   }
+  
   
   /* Quando a seção estiver visível */
   .scroll-section.visible {
