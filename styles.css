@@ -198,7 +198,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   margin-top: 100px;
-  width: 850px;
+  width: 600px;
   opacity: 0;
   transition: opacity 1s ease-out 1s; /* Transição suave com atraso */
 }
@@ -214,8 +214,8 @@ body {
 
 /* Estilos para a imagem */
 #sobre .foto {
-  width: 400px;
-  height: 650px;
+  width: 300px;
+  height: 550px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -276,11 +276,89 @@ body {
   transform: scale(1.1);
 }
 
-  /* Ajustes de fundo */
-  #projetos {
-    background-color: #242424;
-  }
+/* Ajusta a altura para cobrir toda a tela */
+#projetos {
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  padding: 20px;
+}
+
+/* Estiliza o título principal */
+#projetos h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  opacity: 0; /* Começa invisível */
+  animation: fadeInBackground 1s ease-out forwards; /* Usa a animação padrão do projeto */
+  transition: text-shadow 1s ease-in-out;
+}
+
+/* Efeito ao passar o mouse no título principal */
+#projetos h2:hover {
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Grid de projetos com 2 linhas e 4 colunas fixas */
+.projetos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 colunas */
+  grid-template-rows: repeat(2, 1fr);  /* 2 linhas */
+  gap: 15px;
+  width: 80vw; /* Mantém o grid proporcional */
+  height: 80vh; /* Ajusta a altura */
+  margin-bottom: 50px; /* Adiciona espaço para o título */
+}
+
+/* Estilos individuais dos projetos */
+.projeto {
+  display: flex;
+  flex-direction: column; /* Alinha o título abaixo da imagem */
+  justify-content: flex-end; /* Garante que o título fique na parte inferior */
+  align-items: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-size: cover;
+  background-position: center;
+  height: 100%; /* Faz a imagem cobrir toda a área do projeto */
+  padding: 10px;
+  box-sizing: border-box;
   
+}
+
+/* Título dos projetos (dentro de cada projeto) */
+.projeto .projeto-titulo {
+  margin-top: 10px; /* Espaço entre o fundo da imagem e o título */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Efeito ao passar o mouse nos projetos */
+.projeto:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsividade: Ajusta para telas menores */
+@media (max-width: 1024px) {
+  .projetos-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+      grid-template-rows: repeat(4, 1fr); /* 4 linhas */
+      height: auto;
+  }
+}
+
+
   #contato {
     background-color: #3e3c3c;
   }
