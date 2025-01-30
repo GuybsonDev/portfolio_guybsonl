@@ -55,11 +55,7 @@ body {
       color: #ffffff; /* Cor do texto ao passar o mouse */
       border-color: #ffffff; /* Altera a cor da borda ao passar o mouse */
   }
-
-
-
-
-
+  
   /* Adiciona fontes do Google Fonts */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
@@ -174,6 +170,7 @@ body {
 #sobre h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
+  margin-top: 60px;
   margin-bottom: 10px;
   letter-spacing: 2px;
   color: #afabab;
@@ -186,7 +183,7 @@ body {
 #sobre p {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
-  margin-top: 0;
+  margin-top: 100px;
   margin-bottom: 1px;
   color: #afabab;
   letter-spacing: 1px;
@@ -200,19 +197,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 20px;
-  width: 250px;
+  margin-top: 100px;
+  width: 850px;
   opacity: 0;
   transition: opacity 1s ease-out 1s; /* Transição suave com atraso */
-}
-
-/* Estilos para a imagem */
-#sobre .foto {
-  width: 250px;
-  height: 400px;
-  object-fit: cover;
-  border: 3px solid #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Quando a seção estiver visível */
@@ -223,55 +211,71 @@ body {
 #sobre h2.visible, #sobre p.visible, #sobre .foto-container.visible {
   opacity: 1;
 }
-  
-  /* Estilos para o container da imagem */
-  #sobre .foto-container {
-    display: flex;
-    justify-content: flex-end; /* Alinha a imagem à direita */
-    align-items: flex-start; /* Alinha a imagem ao topo */
-    margin-top: 20px; /* Ajusta a distância do topo */
-    width: 250px; /* Garantindo que o container da imagem tenha largura definida */
-  }
-  
-  /* Estilos para a imagem */
-  #sobre .foto {
-    width: 250px; /* Largura da imagem */
-    height: 400px; /* Altura da imagem */
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
-    border: 3px solid #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
 
-  .foto-container {
-    display: flex;
-    justify-content: flex-start;  /* Alinha os elementos no começo, à esquerda */
-    align-items: flex-start;  /* Alinha as imagens do carrossel com a imagem principal */
-    width: 100%;  /* Garante que o contêiner ocupe 100% da largura */
-    height: 100%;  /* Permite que o contêiner cresça em altura */
-  }
-  
-  .foto {
-    width: 60%;  /* Tamanho da imagem principal */
-    height: auto;  /* Mantém a proporção da imagem principal */
-  }
-  
-  .carousel-container {
-    display: flex;
-    flex-direction: column;  /* Empilha as imagens do carrossel verticalmente */
-    width: 30%;  /* Ajuste da largura do carrossel */
-    order: -1;  /* Coloca o carrossel à esquerda da imagem principal */
-    height: auto;  /* Permite que o carrossel tenha a altura dinâmica */
-    gap: 10px;  /* Espaçamento entre as imagens do carrossel */
-    margin-left: 10px;  /* Espaço entre a imagem principal e o carrossel */
-    height: 100%;  /* Força o carrossel a preencher a altura disponível */
-  }
-  
-  .carousel-image {
-    width: 100%;  /* Ajusta as imagens dentro do carrossel para o tamanho do contêiner */
-    height: auto;  /* Mantém as proporções das imagens do carrossel */
-  }
-  
+/* Estilos para a imagem */
+#sobre .foto {
+  width: 400px;
+  height: 650px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Container da imagem principal */
+.foto-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Wrapper para organizar imagem e carrossel */
+.imagem-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Imagem principal */
+.foto {
+  width: 250px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Container do carrossel */
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 390px;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Carrossel com imagens alinhadas horizontalmente */
+.carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  white-space: nowrap;
+  transition: transform 0.3s ease-out; /* Suaviza a rolagem */
+}
+
+/* Imagens dentro do carrossel */
+.carousel-image {
+  width: 45px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-image:hover {
+  transform: scale(1.1);
+}
+
   /* Ajustes de fundo */
   #projetos {
     background-color: #242424;
@@ -288,7 +292,6 @@ body {
   }
   
 
-  
   footer {
     text-align: center; /* Centraliza o conteúdo */
     background-color: #000000; /* Cor de fundo */
@@ -299,4 +302,3 @@ body {
     box-sizing: border-box; /* Inclui padding e borda na largura */
     overflow-x: hidden; /* Impede rolagem horizontal no footer */
   }
-

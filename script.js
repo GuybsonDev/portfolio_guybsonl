@@ -85,3 +85,40 @@ const observer = new IntersectionObserver((entries, observer) => {
 // Observa a seção #sobre
 const sobreSection = document.querySelector('#sobre');
 observer.observe(sobreSection);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel");
+  const images = Array.from(document.querySelectorAll(".carousel-image"));
+  const totalWidth = images.reduce((sum, img) => sum + img.offsetWidth + 10, 0); // Soma das larguras das imagens
+  let scrollPosition = 0;
+  let speed = 0.3; // Velocidade da rolagem
+
+  // Duplicamos todas as imagens para criar um efeito de loop contínuo
+  images.forEach((image) => {
+      let clone = image.cloneNode(true);
+      carousel.appendChild(clone);
+  });
+
+  function scrollCarousel() {
+      scrollPosition -= speed;
+      carousel.style.transform = `translateX(${scrollPosition}px)`;
+
+      // Quando todo o primeiro conjunto de imagens sair da tela, reposicionamos instantaneamente
+      if (Math.abs(scrollPosition) >= totalWidth) {
+          scrollPosition = 0;
+          carousel.style.transition = "none"; // Remove transição para evitar travamentos
+          carousel.style.transform = `translateX(0px)`;
+
+          // Pequeno timeout para garantir que o CSS processe a mudança sem engasgo
+          requestAnimationFrame(() => {
+              carousel.style.transition = "transform 0.3s linear"; // Retorna a transição suave
+          });
+      }
+
+      requestAnimationFrame(scrollCarousel);
+  }
+
+  scrollCarousel(); // Iniciar a rolagem
+});
+
+
