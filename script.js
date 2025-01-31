@@ -1,32 +1,11 @@
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('.scroll-section');
-  const scrollY = window.scrollY;
-  const windowHeight = window.innerHeight;
-
-  sections.forEach((section, index) => {
-    const start = index * windowHeight - windowHeight / 2; // Ajusta o início para que a seção apareça antes
-    const end = (index + 1) * windowHeight - windowHeight / 2; // Ajusta o final
-
-    // Ajustando a transição para ser mais rápida
-    const transitionSpeed = 0.5; // Menor valor, mais rápido
-    const progress = (scrollY - start) / windowHeight;
-
-    if (scrollY >= start && scrollY <= end) {
-      // Aplica a transição de opacidade na seção visível
-      section.style.transition = `opacity ${transitionSpeed}s ease-out`; // Apenas a transição de opacidade
-
-      section.style.opacity = 1 - Math.pow(progress, 5); // Aumenta a opacidade com uma curva mais acentuada
-
-      // Remover o efeito da próxima seção
-      const nextSection = sections[index + 1];
-      if (nextSection) {
-        nextSection.style.opacity = 0; // Remove a opacidade da próxima seção enquanto não está visível
-      }
-    } else {
-      // Se a seção não estiver visível, remove os efeitos
-      section.style.opacity = 0;
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const inicio = document.getElementById("inicio");
+  
+  // Adiciona a classe 'visible' após um pequeno delay para o efeito de transição de carregamento
+  setTimeout(() => {
+    inicio.classList.add("visible");
+  }, 100);  // Pequeno delay para o carregamento suave
+  
 });
 
 // Movimento de fundo no #inicio
@@ -48,43 +27,60 @@ window.addEventListener('mousemove', (e) => {
 });
 
 // Função para o Intersection Observer
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    // Se a seção #sobre estiver visível, adiciona a classe 'visible'
-    if (entry.isIntersecting) {
-      const section = entry.target;
-      section.classList.add('visible'); // Torna a seção visível
+    const section = entry.target;
 
-      // Adiciona 'visible' também nos elementos dentro da seção
+    if (entry.isIntersecting) {
+      section.classList.add('visible'); // Adiciona a classe visível
+
+      // Se existirem elementos internos, adiciona a classe visível a eles
       const title = section.querySelector('h2');
       const paragraph = section.querySelector('p');
       const fotoContainer = section.querySelector('.foto-container');
+      const projetosContainer = section.querySelector('.projetos-container');
+      const projetos = section.querySelectorAll('.projeto');
 
-      title.classList.add('visible');
-      paragraph.classList.add('visible');
-      fotoContainer.classList.add('visible');
+      // Adiciona animação suave ao título, parágrafo, foto e container de projetos
+      if (title) title.classList.add('visible');
+      if (paragraph) paragraph.classList.add('visible');
+      if (fotoContainer) fotoContainer.classList.add('visible');
+      if (projetosContainer) projetosContainer.classList.add('visible');
+
+      // Adiciona animação progressiva aos projetos dentro da seção
+      projetos.forEach((projeto, index) => {
+        projeto.style.animation = `fadeInProject 0.6s ease-out ${0.6 + (index * 0.2)}s forwards`;
+      });
+      
     } else {
       // Quando a seção sai da tela, remove a classe 'visible' para resetar
-      const section = entry.target;
       section.classList.remove('visible');
 
-      // Remove 'visible' também nos elementos dentro da seção
+      // Remover a visibilidade de elementos internos
       const title = section.querySelector('h2');
       const paragraph = section.querySelector('p');
       const fotoContainer = section.querySelector('.foto-container');
+      const projetosContainer = section.querySelector('.projetos-container');
+      const projetos = section.querySelectorAll('.projeto');
 
-      title.classList.remove('visible');
-      paragraph.classList.remove('visible');
-      fotoContainer.classList.remove('visible');
+      if (title) title.classList.remove('visible');
+      if (paragraph) paragraph.classList.remove('visible');
+      if (fotoContainer) fotoContainer.classList.remove('visible');
+      if (projetosContainer) projetosContainer.classList.remove('visible');
+
+      projetos.forEach(projeto => {
+        projeto.style.animation = ''; // Remove a animação ao sair da tela
+      });
     }
   });
 }, {
-  threshold: 0.5 // A seção precisa ocupar 50% da tela para ser considerada visível
+  threshold: 0.5 // A seção precisa ocupar 50% da tela para ativar
 });
 
-// Observa a seção #sobre
-const sobreSection = document.querySelector('#sobre');
-observer.observe(sobreSection);
+// Seleciona as seções que precisam do efeito de carregamento
+const sectionsToObserve = document.querySelectorAll('#inicio, #sobre, #projetos, #contato'); // Seções #sobre e #projetos
+sectionsToObserve.forEach(section => observer.observe(section)); // Aplica o observer a ambas as seções
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".carousel");
@@ -120,5 +116,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   scrollCarousel(); // Iniciar a rolagem
 });
-
-

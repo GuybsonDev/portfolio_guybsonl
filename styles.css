@@ -59,7 +59,7 @@ body {
   /* Adiciona fontes do Google Fonts */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
-  /* Estado inicial do fundo */
+/* Estado inicial do fundo */
 #inicio {
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
       url('imagens/background-about.jpg');
@@ -249,7 +249,7 @@ body {
   display: flex;
   overflow: hidden;
   width: 100%;
-  max-width: 390px;
+  max-width: 300px;
   padding: 5px;
   border-radius: 5px;
   position: relative;
@@ -276,50 +276,92 @@ body {
   transform: scale(1.1);
 }
 
+/* Configuração das seções */
+.scroll-section {
+  min-height: 100vh;
+  padding: 40px;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Quando a seção estiver visível */
+.scroll-section.visible {
+  opacity: 1;
+}
+
 /* Ajusta a altura para cobrir toda a tela */
 #projetos {
-  background-color: #242424;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url('imagens/background-projetos.jpg');
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa 100% da altura da tela */
+  height: 100vh;
   padding: 20px;
 }
 
-/* Estiliza o título principal */
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estiliza o título */
 #projetos h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
-  margin-bottom: 20px;
-  opacity: 0; /* Começa invisível */
-  animation: fadeInBackground 1s ease-out forwards; /* Usa a animação padrão do projeto */
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
   transition: text-shadow 1s ease-in-out;
 }
 
-/* Efeito ao passar o mouse no título principal */
 #projetos h2:hover {
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
 }
 
-/* Grid de projetos com 2 linhas e 4 colunas fixas */
+/* Grid de projetos */
 .projetos-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 colunas */
-  grid-template-rows: repeat(2, 1fr);  /* 2 linhas */
-  gap: 15px;
-  width: 80vw; /* Mantém o grid proporcional */
-  height: 80vh; /* Ajusta a altura */
-  margin-bottom: 50px; /* Adiciona espaço para o título */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 50px;
+  width: 70vw;
+  height: 80vh;
+  margin-bottom: 50px;
+  padding: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
 }
 
-/* Estilos individuais dos projetos */
+/* Animação individual dos projetos */
+@keyframes fadeInProject {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos dos projetos */
 .projeto {
   display: flex;
-  flex-direction: column; /* Alinha o título abaixo da imagem */
-  justify-content: flex-end; /* Garante que o título fique na parte inferior */
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   color: #fff;
   font-size: 1rem;
@@ -329,35 +371,38 @@ body {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   background-size: cover;
   background-position: center;
-  height: 100%; /* Faz a imagem cobrir toda a área do projeto */
+  height: 100%;
   padding: 10px;
   box-sizing: border-box;
-  
+  opacity: 0;
 }
 
-/* Título dos projetos (dentro de cada projeto) */
-.projeto .projeto-titulo {
-  margin-top: 10px; /* Espaço entre o fundo da imagem e o título */
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
+/* Efeito hover nos projetos */
+.projeto {
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
-/* Efeito ao passar o mouse nos projetos */
 .projeto:hover {
   transform: scale(1.05);
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }
 
-/* Responsividade: Ajusta para telas menores */
+.projetos-container:hover .projeto {
+  filter: brightness(0.4);
+}
+
+.projetos-container .projeto:hover {
+  filter: brightness(1);
+}
+
+/* Responsividade */
 @media (max-width: 1024px) {
   .projetos-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-      grid-template-rows: repeat(4, 1fr); /* 4 linhas */
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
       height: auto;
   }
 }
-
 
   #contato {
     background-color: #3e3c3c;
