@@ -116,3 +116,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   scrollCarousel(); // Iniciar a rolagem
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const projetos = document.querySelectorAll(".projeto");
+  const modal = document.querySelector(".modal");
+  const modalContent = document.querySelector(".modal-content");
+
+  projetos.forEach(projeto => {
+    projeto.addEventListener("click", function () {
+      modal.style.display = "flex";
+      modalContent.innerHTML = `<span class='modal-close'>&times;</span><h2>${this.querySelector(".projeto-titulo").innerText}</h2><p>Detalhes do projeto...</p>`;
+      document.querySelector(".modal-close").addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+    });
+  });
+
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
