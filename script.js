@@ -119,22 +119,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const projetos = document.querySelectorAll(".projeto");
-  const modal = document.querySelector(".modal");
-  const modalContent = document.querySelector(".modal-content");
+  const modais = document.querySelectorAll(".modal");
 
+  // Exibe o modal com animação ao clicar no projeto
   projetos.forEach(projeto => {
     projeto.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalContent.innerHTML = `<span class='modal-close'>&times;</span><h2>${this.querySelector(".projeto-titulo").innerText}</h2><p>Detalhes do projeto...</p>`;
-      document.querySelector(".modal-close").addEventListener("click", function () {
-        modal.style.display = "none";
+      const modalId = this.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      
+      // Adiciona a classe 'active' ao modal para ativar a animação
+      modal.classList.add("active");
+
+      // Adiciona o evento de fechar o modal
+      modal.querySelector(".modal-close").addEventListener("click", function () {
+        // Adiciona a animação de fechamento antes de ocultar
+        modal.style.animation = "modalClose 0.3s forwards";
+        
+        // Espera a animação de fechamento acabar e então esconde o modal
+        setTimeout(() => {
+          modal.classList.remove("active");
+          modal.style.animation = ''; // Reseta a animação
+        }, 300); // Tempo da animação de fechamento
       });
     });
   });
 
+  // Fechar o modal clicando fora dele
   window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
+    modais.forEach(modal => {
+      if (e.target === modal) {
+        modal.style.animation = "modalClose 0.3s forwards";
+        setTimeout(() => {
+          modal.classList.remove("active");
+          modal.style.animation = '';
+        }, 300);
+      }
+    });
   });
 });
+
+
+
+
+
+
+

@@ -415,73 +415,6 @@ body {
   }
 }
 
-/* Modal de informações */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.926);
-  justify-content: center;
-  align-items: center;
-  padding: 20px; /* Adicionando um pequeno espaçamento nas bordas */
-}
-
-/* Estilo do conteúdo do modal */
-.modal-content {
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url('imagens/background-projetos.jpg');
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;  /* Aumentando para quase 100% da tela */
-  height: 80%; /* Aumentando a altura para 80% da tela */
-  max-width: 900px;  /* Limita a largura máxima */
-  max-height: 700px; /* Limita a altura máxima */
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Adiciona rolagem se o conteúdo ultrapassar a altura */
-}
-
-
-/* Estilo para a parte que contém o título e o texto */
-.modal-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.modal-header h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0;
-  color: #ffffff;
-}
-
-.modal-content p {
-  font-size: 1rem;
-  color: #ffffff;
-  margin: 0;
-  padding-top: 10px;
-}
-
-/* Estilo da área para escrever (aba de texto) */
-.text-area {
-  margin-top: 20px;
-  padding: 10px;
-  width: 100%;
-  height: 150px;
-  border-radius: 8px;
-  border: 1px solid #ffffff;
-  font-size: 1rem;
-  resize: none;
-}
-
 /* Estilo para o botão de fechar */
 .modal-close {
   position: absolute;
@@ -491,18 +424,123 @@ body {
   cursor: pointer;
 }
 
+/* Estilo para os modais quando visíveis */
+.modal {
+  display: none; /* Inicialmente escondidos */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.855);
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.3s ease; /* Transição para opacidade */
+  pointer-events: none; /* Desabilita interação quando não está ativo */
+}
 
-
-  #contato {
-    background-color: #3e3c3c;
+/* Animação de abertura */
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  
-  /* Quando a seção estiver visível */
-  .scroll-section.visible {
+  to {
     opacity: 1;
+    transform: scale(1);
   }
-  
+}
+
+/* Animação de fechamento */
+@keyframes modalClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Quando o modal estiver ativo, ele faz a animação de abrir */
+.modal.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto; /* Permite interação quando ativo */
+  animation: modalOpen 0.3s forwards; /* Aplica animação de abertura */
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-content {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url('imagens/background-projetos.jpg');
+  border: 1px solid #fff; /* Cor e espessura da borda */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  max-width: 500px;
+  max-height: 1000px;
+  text-align: left;
+  overflow-y: auto;
+  position: relative; /* Necessário para posicionar a imagem dentro */
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px; /* Afastando o conteúdo do topo do modal */
+}
+
+
+/* Adicionando o título ao lado da logo */
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-logo {
+  width: 80px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  margin-right: 15px; /* Espaçamento entre logo e título */
+}
+
+.modal-header h2 {
+  font-size: 1.8rem; /* Ajuste conforme necessário */
+  color: white;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Responsividade para o título e logo */
+@media (max-width: 768px) {
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+#contato {
+  background-color: #3e3c3c;
+}
+
+/* Quando a seção estiver visível */
+.scroll-section.visible {
+  opacity: 1;
+}
+
 
   footer {
     text-align: center; /* Centraliza o conteúdo */
