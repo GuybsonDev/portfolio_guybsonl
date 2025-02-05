@@ -293,7 +293,7 @@ body {
 /* Ajusta a altura para cobrir toda a tela */
 #projetos {
   background: 
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    linear-gradient(rgba(0, 0, 0, 0.901), rgba(0, 0, 0, 0.896)),
     url('imagens/background-projetos.jpg');
   display: flex;
   flex-direction: column;
@@ -318,14 +318,17 @@ body {
 /* Estiliza o título */
 #projetos h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: #fff;
-  margin-bottom: 50px;
+  color: #afabab;
+  margin-top: 1px; /* Ajusta a distância do topo */
+  margin-bottom: 20px; /* Reduz a distância inferior */
+  letter-spacing: 2px;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   transition: text-shadow 1s ease-in-out;
 }
+
 
 #projetos h2:hover {
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
@@ -334,11 +337,13 @@ body {
 /* Grid de projetos */
 .projetos-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 50px;
+  grid-column-gap: 50px;
+  grid-row-gap: 100px;
   width: 70vw;
-  height: 80vh;
+  height: 60vh;
+  margin-top: 100px; /* Aumenta a distância do título */
   margin-bottom: 50px;
   padding: 10px;
   opacity: 0;
@@ -364,7 +369,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
   border-radius: 8px;
@@ -378,17 +383,45 @@ body {
   position: relative; /* Necessário para que o fade funcione corretamente */
 }
 
-/* Fade aplicado apenas na parte inferior */
+/* Fade aplicado apenas na parte superior */
 .projeto::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 0; /* Posiciona o fade na parte superior */
   left: 0;
   width: 100%;
-  height: 50%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  height: 50%; /* Altura do fade */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); /* Gradiente indo de cima para baixo */
   border-radius: 8px;
   z-index: -1; /* Garante que o fade fique abaixo do conteúdo (texto) */
+}
+
+/* Barra abaixo de cada item da grid */
+.projeto::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Posiciona a barra abaixo do fundo */
+  left: 0; /* Alinha a barra com o início do item */
+  width: 100%; /* Largura da barra */
+  height: 30px; /* Altura da barra */
+  background: rgb(0, 0, 0); /* Cor da barra */
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Imagens dentro da barra */
+.projeto-imagens {
+  position: absolute;
+  bottom: 0; /* Alinha as imagens na parte inferior da barra */
+  left: 0; /* Alinha as imagens à esquerda da barra */
+  display: flex;
+  gap: 10px;
+  z-index: 1; /* Para garantir que as imagens fiquem acima da barra */
+}
+
+.projeto-imagens img {
+  width: 30px; /* Ajuste o tamanho das imagens */
+  height: 30px; /* Ajuste a altura das imagens */
 }
 
 
@@ -405,6 +438,16 @@ body {
 .projetos-container .projeto:hover {
   filter: brightness(1);
 }
+
+.projeto-titulo {
+  color: #afabab;
+  position: absolute; /* Para posicionar o título dentro do projeto */
+  top: 0; /* Fixa o título no topo */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajusta para que o centro real do título seja no meio */
+  font-size: 0.8rem; /* Tamanho do título, ajuste conforme necessário */
+}
+
 
 /* Responsividade */
 @media (max-width: 1024px) {
@@ -478,13 +521,13 @@ body {
     linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url('imagens/background-projetos.jpg');
   border: 1px solid #fff; /* Cor e espessura da borda */
-  color: white;
+  color: #afabab;
   font-family: 'Poppins', sans-serif;
   padding: 20px;
   border-radius: 20px;
   width: 80%;
   height: 80%;
-  max-width: 500px;
+  max-width: 1000px;
   max-height: 1000px;
   text-align: left;
   overflow-y: auto;
@@ -510,7 +553,14 @@ body {
 
 .modal-header h2 {
   font-size: 1.8rem; /* Ajuste conforme necessário */
-  color: white;
+  color: #afabab;
+  margin: 0;
+  font-weight: bold;
+}
+
+.modal h3 {
+  font-size: 1.8rem; /* Ajuste conforme necessário */
+  color: #afabab;
   margin: 0;
   font-weight: bold;
 }
