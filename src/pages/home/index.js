@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function Home() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-300px" });
+  const isInView = useInView(ref, { margin: "-150px" });
 
   return (
     <section id="inicio" className="containerHome" ref={ref}>

@@ -3,3 +3,10 @@
 #10add4
 #1188aa
 #2f7285
+
+Breakpoints responsividade:
+📱 320px - 480px → Celulares pequenos
+📱 481px - 768px → Celulares grandes / Tablets pequenos
+📱 769px - 1024px → Tablets e notebooks menores
+💻 1025px - 1280px → Desktops comuns
+🖥 1281px+ → Telas grandes

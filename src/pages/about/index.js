@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-300px" });
+  const isInView = useInView(ref, { margin: "-150px" });
 
   return (
     <section id="sobre" className="containerAbout" ref={ref}>
@@ -61,6 +61,10 @@ function About() {
               "shell-logo.png",
               "django-logo.png",
               "react-logo.png",
+              "excel-logo.png",
+              "chatgpt-logo.png",
+              "pandas-logo.svg",
+              "expo-logo.png"
             ].map((image, index) => (
               <motion.img
                 key={index}
