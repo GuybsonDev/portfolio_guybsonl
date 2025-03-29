@@ -8,6 +8,7 @@ import NavBar from '../src/components/navbar'
 import Home from '../src/pages/home'
 import About from '../src/pages/about'
 import Projects from "./pages/projects";
+import Contact from "./pages/contact";
 
 function App() {
   register();
@@ -17,6 +18,7 @@ function App() {
       <Home/>
       <About/>
       <Projects/>
+      <Contact/>
     </div>
   );
 }

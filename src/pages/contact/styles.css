@@ -1,0 +1,22 @@
+/* Seção inicial */
+.containerContact {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #06313f;
+}
+
+/* Conteúdo da seção */
+.contentContact {
+  display: flex;
+  width: 95%;
+  height: 90%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-image: linear-gradient(to bottom, #124b5e, #06313f, #06313f, #0b3e4e, #124b5e);
+  border-radius: 20px;
+}

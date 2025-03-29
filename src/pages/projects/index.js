@@ -96,7 +96,6 @@ function Projects() {
       require('../../assets/images/css-logo.png'),
       ]
     }
-
   ]
 
   return (
