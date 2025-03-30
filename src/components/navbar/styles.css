@@ -3,15 +3,36 @@
   background-color: #124b5e;
   padding: 0.0%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
-  left: 0; 
-  width: 100%; 
-  z-index: 1000; 
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
+}
+
+.containerLinksAbout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+.logoGithub {
+  width: 30px;
+  height: 30px;
+}
+
+.logoLinkedin {
+  width: 45px;
+  height: 45px;
+}
+.logoCurriculo{
+  width: 30px;
+  height: 30px;
 }
 
 /* Ícone do menu (Hambúrguer) */
@@ -52,6 +73,11 @@
 }
 
 @media (max-width: 1100px) {
+  .containerLinksAbout {
+    margin-left: 2%;
+    width: 15%;
+  }
+
   .menu-icon {
     display: block;
   }
@@ -77,6 +103,114 @@
     margin: 10px 0;
   }
 }
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 769px) {
+  .containerLinksAbout {
+    margin-left: 2%;
+    width: 15%;
+  }
+
+  .logoGithub {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .logoLinkedin {
+    width: 35px;
+    height: 35px;
+  }
+  .logoCurriculo{
+    width: 20px;
+    height: 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #06313F;
+    width: 35%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+@media (max-width: 480px) {
+  .containerLinksAbout {
+    margin-left: 5%;
+    width: 15%;
+  }
+
+  .logoGithub {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .logoLinkedin {
+    width: 25px;
+    height: 25px;
+  }
+  .logoCurriculo{
+    width: 15px;
+    height: 15px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #06313F;
+    width: 35%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
+}
+
 .navbar.hidden {
   transform: translateY(-100%);
 }

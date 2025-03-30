@@ -53,7 +53,7 @@
 
 .titleDescProject {
   color: #FFF;
-  font-size: 35px;
+  font-size: 25px;
 }
 
 .textDescProject {
@@ -74,7 +74,7 @@
 .titleImageTecnologycs {
   margin-top: 1%;
   color: #FFF;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .containerImagesTecnologycs {
@@ -112,7 +112,65 @@
   font-size: 15px;
 }
 
+@media (max-width: 1280px) {
+  .titleDescProject {
+    font-size: 20px;
+  }
+  .textDescProject {
+    font-size: 16px;
+  }
+  .titleImageTecnologycs {
+    font-size: 16px;
+  }
+  .imageTecnologycs {
+    max-width: 30px;
+    max-height: 60%;
+  }
+}
+
 @media (max-width: 750px) {
+  .contentProjects {
+    justify-content: flex-start;
+    width: 90%;
+  }
+
+  .contentProjects {
+    flex-direction: column;
+  }
+
+  .containerSlide {
+    margin-top: 2%;
+    width: 70%;
+    height: 35%;
+  }
+
+  .titleDescProject {
+    font-size: 25px;
+  }
+
+  .textDescProject {
+    color: #FFF;
+    font-size: 14px;
+  }
+
+  .containerDescProject {
+    width: 90%;
+  }
+
+  .titleImageTecnologycs {
+    font-size: 15px;
+  }
+
+  .imageTecnologycs {
+    max-width: 25px;
+    max-height: 60%;
+  }
+
+  .linkProject {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
   .contentProjects {
     justify-content: flex-start;
     width: 90%;

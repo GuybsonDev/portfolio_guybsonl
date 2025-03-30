@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-15px" });
+  const isInView = useInView(ref, { margin: "-20px" });
 
   return (
     <section id="contato" className="containerContact" ref={ref}>
@@ -22,7 +22,10 @@ function Contact() {
           <h3 className="textPhone">55 77981187169</h3>
         </div>
         <div className="containerEmail">
-          <h3 className="textEmailText">E-mail:</h3>
+          <div className="containerTextEmail">
+            <img src={require("../../assets/images/email-logo.png")} className="logoEmail"/>
+            <h3 className="textEmailText">E-mail:</h3>
+          </div>
           <h3 className="textEmail">guybsonlopescomercial@gmail.com</h3>
         </div>
         <h3 className="textCopright">© 2024 Guybson Lopes. Todos os direitos reservados.</h3>
