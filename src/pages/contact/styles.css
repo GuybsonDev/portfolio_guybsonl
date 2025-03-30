@@ -1,7 +1,7 @@
 /* Seção inicial */
 .containerContact {
   width: 100%;
-  height: 30vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,4 +19,63 @@
   padding: 10px;
   background-image: linear-gradient(to bottom, #124b5e, #06313f, #06313f, #0b3e4e, #124b5e);
   border-radius: 20px;
+}
+
+.containerPhone {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerTextPhone {
+  background-color: rgba(245, 245, 220, 0);
+  display: flex;
+  flex-direction: row;
+}
+
+.logoPhone {
+  width: 25px;
+  height: 25px;
+}
+
+.textPhoneText {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.textPhone {
+  margin-top: 5%;
+  color: #FFF;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.containerEmail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textEmailText {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.textEmail {
+  margin-top: 5%;
+  color: #FFF;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.textCopright {
+  color: #FFF;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-right: 5%;
 }
