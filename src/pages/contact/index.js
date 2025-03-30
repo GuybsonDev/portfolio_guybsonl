@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-20px" });
+  const isInView = useInView(ref, { margin: "-10px" });
 
   return (
     <section id="contato" className="containerContact" ref={ref}>
