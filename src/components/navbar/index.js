@@ -29,7 +29,7 @@ function NavBar() {
         <a href="https://www.linkedin.com/in/guybson-lopes-132b7020b/" target="_blank" rel="noopener noreferrer" >
           <img src={require('../../assets/images/linkedin-logo.png')} className="logoLinkedin" />
         </a>
-        <a href="https://drive.google.com/file/d/1HUGaPlxQT-qd2NIlOIoNKPp5n8lJubPz/view?usp=sharing" target="_blank" rel="noopener noreferrer" >
+        <a href="https://drive.google.com/file/d/1JJxGjnX4bWpCcOekF53cWftmX2dXH1O1/view?usp=sharing" target="_blank" rel="noopener noreferrer" >
           <img src={require('../../assets/images/curriculo-logo.png')} className="logoCurriculo" />
         </a>
       </div>

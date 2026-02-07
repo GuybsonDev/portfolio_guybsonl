@@ -87,7 +87,7 @@ function Projects() {
     {
       id: '7',
       image: require('../../assets/images/projeto-portfolio.png'),
-      name: 'Portfolio Guybson Lopes',
+      name: 'Portfólio Guybson Lopes',
       link: 'https://github.com/GuybsonDev/portfolio_guybsonl',
       desc: 'Desenvolvi um portfólio dinâmico em React JS, com 4 telas principais: "Início", "Sobre", "Projetos" e "Contato". O design é totalmente responsivo, garantindo uma experiência fluida em qualquer dispositivo, seja desktop, tablet ou celular. O objetivo central desse projeto é centralizar todos os meus trabalhos, currículo, perfis do LinkedIn e GitHub em um único local. Além disso, ele foi uma excelente oportunidade para aprimorar minhas habilidades em desenvolvimento web.',
       tecnologycs: [require('../../assets/images/react-logo.png'),
