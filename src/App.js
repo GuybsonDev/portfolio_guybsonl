@@ -925,13 +925,26 @@ function App() {
                           image={project.image}
                           alt={project.title}
                           className="project-media"
-                          sx={{ height: 210, transition: "transform 0.35s ease" }}
+                          sx={{
+                            height: { xs: 240, sm: 270, md: 290 },
+                            transition: "transform 0.35s ease",
+                          }}
                         />
-                        <CardContent sx={{ p: 2.2, display: "flex", flexDirection: "column", gap: 1.4, flexGrow: 1 }}>
-                          <Typography variant="h6" sx={{ fontSize: "1.02rem", minHeight: 54 }}>
+                        <CardContent sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1.1, flexGrow: 1 }}>
+                          <Typography variant="h6" sx={{ fontSize: "1rem", minHeight: 44 }}>
                             {project.title}
                           </Typography>
-                          <Typography sx={{ color: "text.secondary", lineHeight: 1.7, flexGrow: 1 }}>
+                          <Typography
+                            sx={{
+                              color: "text.secondary",
+                              lineHeight: 1.6,
+                              flexGrow: 1,
+                              display: "-webkit-box",
+                              WebkitLineClamp: 4,
+                              WebkitBoxOrient: "vertical",
+                              overflow: "hidden",
+                            }}
+                          >
                             {project.description}
                           </Typography>
                           <Stack direction="row" spacing={0.7} useFlexGap flexWrap="wrap">
