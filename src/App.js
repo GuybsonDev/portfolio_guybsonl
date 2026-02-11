@@ -53,6 +53,7 @@ import projectMercadoLivre from "./assets/images/projeto-mercado-livre.jpg";
 import projectChaves from "./assets/images/projeto-chaves.jpg";
 import projectPortfolio from "./assets/images/projeto_portfolio_novo.png";
 import projectEdaSemantix from "./assets/images/eda_projeto.jpeg";
+import projectQuadrixDesktop from "./assets/images/quadrix-desktop.png";
 
 const navItems = [
   { label: "Início", id: "inicio" },
@@ -175,6 +176,14 @@ const projects = [
     image: projectEdaSemantix,
     link: "https://github.com/GuybsonDev",
     stack: ["Python", "Pandas", "ETL", "MySQL", "Looker Studio"],
+  },
+  {
+    title: "Quadrix B2B/SaaS - Sistema de agendamento de quadras",
+    description:
+      "Desenvolvi o Quadrix, uma plataforma B2B/SaaS para agendamento e gestão de quadras esportivas. O sistema permite reservas por modalidade e horário, confirmação de presença em tempo real, painéis para administrador e participante, além de métricas e relatórios para apoiar a operação. A interface foi construída com foco em UX e responsividade total (mobile, tablet e desktop).",
+    image: projectQuadrixDesktop,
+    link: "https://github.com/GuybsonDev",
+    stack: ["Django", "Django Ninja", "React", "MUI", "TanStack Query", "SaaS"],
   },
 ];
 
